@@ -6,6 +6,7 @@
   "license": "MIT",
   "scripts": {
     "start": "nodemon ./server --exec babel-node",
+    "start:mongo": "mongod --dbpath=/data",
     "lint": "node ./node_modules/.bin/eslint client/**"
   },
   "dependencies": {
@@ -19,7 +20,9 @@
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "express": "^4.16.2",
     "graphql": "^0.11.7",
-    "graphql-tools": "^2.19.0"
+    "graphql-tools": "^2.19.0",
+    "mongodb": "^3.0.5",
+    "mongoose": "^5.0.11"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

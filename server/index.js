@@ -1,14 +1,10 @@
-import express from 'express';
-import bodyParser from 'body-parser';
-import { graphqlExpress, graphiqlExpress } from 'apollo-server-express';
+import express from './config/express';
+import mongo from './config/mongo';
+import mongoose from './config/mongoose';
 
-import schema from './schema';
+import schema from './modules/post/schema';
+// import connectors from './modules/post/connectors';
 
-const GRAPHQL_PORT = 3000;
-
-const graphQLServer = express();
-
-graphQLServer.use('/graphql', bodyParser.json(), graphqlExpress({ schema }));
-graphQLServer.use('/graphiql', graphiqlExpress({ endpointURL: '/graphql' }));
-
-graphQLServer.listen(GRAPHQL_PORT);
+mongo();
+mongoose();
+express(schema);

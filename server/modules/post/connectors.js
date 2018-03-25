@@ -12,4 +12,3 @@ const viewSchema = Mongoose.Schema({
 });
 
 const view = Mongoose.model('views', viewSchema);
-
