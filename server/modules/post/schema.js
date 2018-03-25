@@ -1,32 +1,20 @@
-import { makeExecutableSchema } from 'graphql-tools';
-import resolvers from './resolvers';
-
-const typeDefs = `
-  type Query {
-    author(firstName: String, lastName: String): Author
-    allAuthors: [Author]
-    getFortuneCookie: String # we'll use this later
-  }
-
-  type Author {
-    id: Int
-    firstName: String
-    lastName: String
-    posts: [Post]
-  }
-
+const Post = `
   type Post {
-    id: Int
+    id: String!
+    authorId: String!
     title: String
-    text: String
-    views: Int
-    author: Author
+    description: String
+    body: String
+  }
+
+  type Query {
+    posts: [Post],
+    post(id: String!): Post
+  }
+
+  type Mutation {
+    savePost(authorId: String!, title: String, description: String, body: String): Post
   }
 `;
 
-const schema = makeExecutableSchema({
-  typeDefs,
-  resolvers
-});
-
-export default schema;
+export default Post;

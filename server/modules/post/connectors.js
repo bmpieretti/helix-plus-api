@@ -1,14 +1,12 @@
-import Mongoose from 'mongoose';
+import mongoose from 'mongoose';
 
-Mongoose.Promise = global.Promise;
-
-const mongo = Mongoose.connect('mongodb://localhost:views', {
-  useMongoClient: true
+const postSchema = new mongoose.Schema({
+  authorId: String,
+  title: String,
+  description: String,
+  body: String
+}, {
+  collection: 'PostList'
 });
 
-const viewSchema = Mongoose.Schema({
-  postId: Number,
-  views: Number
-});
-
-const view = Mongoose.model('views', viewSchema);
+export default mongoose.model('post', postSchema);
