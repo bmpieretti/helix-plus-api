@@ -1,12 +1,32 @@
-import mongoose from 'mongoose';
+import Post from './model';
 
-const postSchema = new mongoose.Schema({
-  authorId: String,
-  title: String,
-  description: String,
-  body: String
-}, {
-  collection: 'PostList'
-});
+const getPosts = () => {
+  const posts = Post.find({});
 
-export default mongoose.model('post', postSchema);
+  return posts;
+};
+
+const getPost = (postId) => {
+  const post = Post.findById(postId);
+
+  return post;
+};
+
+const savePost = (newPost) => {
+  const postItem = new Post({
+    authorId: newPost.authorId,
+    title: newPost.title,
+    description: newPost.description,
+    body: newPost.body
+  });
+
+  const post = postItem.save();
+
+  return post;
+};
+
+export default {
+  getPosts,
+  getPost,
+  savePost
+};

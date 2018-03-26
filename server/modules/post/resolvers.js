@@ -1,17 +1,17 @@
-import { getPosts, getPost, savePost } from './post';
+import connectors from './connectors';
 
 const resolvers = {
   Query: {
-    posts: () => (getPosts()),
+    posts: () => (connectors.getPosts()),
     post: (root, { id }) => (
-      getPost(id)
+      connectors.getPost(id)
     )
   },
   Mutation: {
     savePost: (root, {
       authorId, title, description, body
     }) => (
-      savePost({
+      connectors.savePost({
         authorId, title, description, body
       })
     )
