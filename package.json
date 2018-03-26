@@ -6,7 +6,6 @@
   "license": "MIT",
   "scripts": {
     "start": "nodemon ./server --exec babel-node",
-    "start:mongo": "mongod --dbpath=/data",
     "lint": "node ./node_modules/.bin/eslint client/**",
     "test": "jest",
     "test:watch": "jest --watch",
