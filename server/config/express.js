@@ -2,7 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import { graphqlExpress, graphiqlExpress } from 'apollo-server-express';
 
-const GRAPHQL_PORT = 3000;
+const GRAPHQL_PORT = 8080;
 
 const expressHelper = (schema) => {
   const graphQLServer = express();
